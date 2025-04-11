@@ -40,7 +40,8 @@ const LoginPage: React.FC = () => {
       return;
     }
 
-    const loginUrl = 'https://intex21-cza7e5hfc3e5evg3.eastus-01.azurewebsites.net/login?useCookies=true';
+    const loginUrl =
+      'https://intex21-cza7e5hfc3e5evg3.eastus-01.azurewebsites.net/login?useCookies=true';
     try {
       const response = await fetch(loginUrl, {
         method: 'POST',
@@ -88,6 +89,11 @@ const LoginPage: React.FC = () => {
             </div>
           </nav>
 
+          {error && (
+            <div className="error-message" role="alert">
+              {error}
+            </div>
+          )}
           <form
             className="login-form"
             aria-label="Login form"
