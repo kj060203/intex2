@@ -86,16 +86,19 @@ const SignupPage: React.FC = () => {
 
     try {
       // STEP 1: Register with Identity
-      const registerResponse = await fetch('https://intex21-cza7e5hfc3e5evg3.eastus-01.azurewebsites.net/register', {
-        method: 'POST',
-        credentials: 'include',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email,
-          password,
-          confirmPassword, // ← REQUIRED for the default Identity /register route
-        }),
-      });
+      const registerResponse = await fetch(
+        'https://intex21-cza7e5hfc3e5evg3.eastus-01.azurewebsites.net/register',
+        {
+          method: 'POST',
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email,
+            password,
+            confirmPassword, // ← REQUIRED for the default Identity /register route
+          }),
+        }
+      );
 
       if (!registerResponse.ok) {
         return setError(
@@ -227,6 +230,7 @@ const SignupPage: React.FC = () => {
                   </option>
                   <option>Male</option>
                   <option>Female</option>
+                  <option>Other</option>
                 </select>
               </div>
               <div className="form-field">
